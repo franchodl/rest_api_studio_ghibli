@@ -3,9 +3,11 @@ import requests
 import pandas as pd
 
 from django.shortcuts import render
+from django.views.decorators.cache import cache_page
 
 
 # Create your views here.
+@cache_page(60)
 def movies(request):
 
     def get_all(type):
