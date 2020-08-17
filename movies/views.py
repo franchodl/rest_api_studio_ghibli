@@ -35,12 +35,6 @@ def movies(request):
     del df['id']
     df = df.to_dict(orient='records')
 
-
-
-
-
-
-
-    context = {}
+    context = {'data': df}
 
     return render(request, 'movies/movies.html', context)
