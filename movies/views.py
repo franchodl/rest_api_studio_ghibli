@@ -13,6 +13,7 @@ def movies(request):
     def get_all(type):
 
         r = requests.get('https://ghibliapi.herokuapp.com/{}'.format(type))
+        print('Get: ', type)
 
         return(r.json())
 
@@ -31,7 +32,8 @@ def movies(request):
     df_people = df_people.join(s)
 
     # Left join
-    df = pd.merge(df_films, df_people, left_on='id', right_on='film_id', how='left')
+    df = pd.merge(
+        df_films, df_people, left_on='id', right_on='film_id', how='left')
     df = df.groupby(['id', 'title']).name.apply(list).reset_index()
     del df['id']
     df = df.to_dict(orient='records')
