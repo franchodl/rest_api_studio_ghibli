@@ -1,10 +1,7 @@
-from django.test import SimpleTestCase, TestCase
-from django.urls import reverse
+from django.test import SimpleTestCase
 
-from . import views
 
 # Create your tests here.
-
 class MoviesTests(SimpleTestCase):
 
     def test_found(self):
@@ -13,4 +10,3 @@ class MoviesTests(SimpleTestCase):
 
     def test_template(self):
         self.assertTemplateUsed(self.client.get('/movies/'), 'movies/movies.html')
-
