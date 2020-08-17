@@ -9,4 +9,5 @@ class MoviesTests(SimpleTestCase):
         self.assertEquals(response.status_code, 200)
 
     def test_template(self):
-        self.assertTemplateUsed(self.client.get('/movies/'), 'movies/movies.html')
+        self.assertTemplateUsed(
+            self.client.get('/movies/'), 'movies/movies.html')
